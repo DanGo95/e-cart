@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AngularFireModule } from '@angular/fire/compat';
 import { AppComponent } from './app.component';
+import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
+import { ComponentsModule } from './components/components.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
