@@ -3,7 +3,7 @@
         <div class="col-md-8 col-sm-12 col-lg-6 col-12">
             <div class="card p-5 border-0 shadow-lg">
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                    <p *ngIf="!isSignUp" class="fs-4 fw-bold text-uppercase text-center mb-5">log in</p>
+                    <p *ngIf="!isSignUp" class="fs-4 fw-bold text-uppercase text-center mb-5">login</p>
                     <p *ngIf="isSignUp" class="fs-4 fw-bold text-uppercase text-center mb-5">create account</p>
                     <div class="mb-3">
                         <input type="email" id="email" class="form-control form-control-lg px-4 py-1" formControlName="email" [class.is-invalid]="invalidInput('email')" placeholder="example@example.com">
@@ -14,12 +14,12 @@
                         <p *ngIf="invalidInput('password')" class="text-danger text-center">Password is required</p>
                     </div>
                     <div class="form-check form-switch mb-3">
-                        <a *ngIf="isSignUp" [routerLink]="['/login']" class="d-flex justify-content-end purple text-decoration-none">Already a member? Login here</a>
-                        <a *ngIf="!isSignUp" [routerLink]="['/register']" class="d-flex justify-content-end purple text-decoration-none">Don't have an account? Create one here</a>
+                        <a *ngIf="isSignUp" [routerLink]="['/login']" class="d-flex justify-content-end text-decoration-none">Already a member? Login here</a>
+                        <a *ngIf="!isSignUp" [routerLink]="['/register']" class="d-flex justify-content-end text-decoration-none">Don't have an account? Create one here</a>
                     </div>
                     <div class="d-grid gap-2">
-                        <button *ngIf="isSignUp" type="submit" class="btn btn-primary btn-rounded p-3 fw-bold text-uppercase mt-3">create account</button>
-                        <button *ngIf="!isSignUp" type="submit" class="btn btn-primary btn-rounded p-3 fw-bold text-uppercase mt-3">log in</button>
+                        <button *ngIf="isSignUp" type="submit" class="btn btn-red btn-rounded p-3 fw-bold text-uppercase mt-3">create account</button>
+                        <button *ngIf="!isSignUp" type="submit" class="btn btn-red btn-rounded p-3 fw-bold text-uppercase mt-3">login</button>
                     </div>
                 </form>
             </div>

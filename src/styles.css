@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: 'Work-sans';
+}
+
+.purple-button {
+    background-color: #ff0253;
+    color: white;
+}
+
+.purple {
+    color: #ff0253;
+}
+
+.purple-button:hover {
+    background-color: #b2013a;
+    color: white;
+}
+
+.bg-red {
+    background-color: #ff0253;
+    color: white;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.btn-circle.btn-xl {
+    width: 60px;
+    height: 60px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+}
+
+.product-details {
+    display: flex;
+    list-style: none;
+    padding: 0.5em 0 1em;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.product-details-item {
+    flex: 1;
+    font-size: 20px;
+}
+
+.product-details-item .value {
+    color: #ff0253;
+    margin-left: .35em;
+    vertical-align: bottom;
+}
+
+.product-details-item .title {
+    display: block;
+    padding: 1px;
+}
+
+.fa-spinner {
+    color: #ff0253;
+}
