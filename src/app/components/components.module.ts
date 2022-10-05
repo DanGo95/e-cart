@@ -5,6 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
 
 
@@ -12,12 +16,19 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   declarations: [
     AuthFormComponent,
     ProductCardComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    NavbarComponent,
+    CartComponent,
+    CartItemComponent,
+    CartSummaryComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule
+  ],
+  exports: [
+    NavbarComponent
   ]
 })
 export class ComponentsModule { }

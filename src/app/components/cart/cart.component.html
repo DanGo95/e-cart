@@ -1,0 +1,42 @@
+<div class="container py-5 h-100 mt-5">
+    <div *ngIf="showLoader" class="row">
+        <div class="col mx-auto text-center mt-5">
+            <i class="fa-5x fas fa-spinner fa-spin"></i>
+        </div>
+    </div>
+    <div *ngIf="!showLoader" class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-0">
+                    <div class="row g-0">
+                        <div class="col-lg-8">
+                            <div class="p-5">
+                                <div class="d-flex justify-content-between align-items-center mb-5">
+                                    <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                                </div>
+                                <hr class="my-4">
+                                <app-cart-item *ngIf="itemsDetails?.length === itemsCart?.length" (updateQuantity)="updateQuantity($event)" [products]="itemsDetails" [productCarts]="itemsCart"></app-cart-item>
+                                <div *ngIf="itemsDetails?.length === 0" class="text-center">
+                                    <img src="./assets/cart.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+                                    <h3>YOUR CART IS EMPTY</h3>
+                                    <h4>Add something to make it happy :)</h4>
+                                </div>
+                                <hr class="my-4">
+                                <div class="pt-5">
+                                    <h6 class="mb-0">
+                                        <a routerLink="/home" class="text-body">
+                                            <i class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <app-cart-summary *ngIf="itemsDetails?.length === itemsCart?.length && itemsDetails.length > 0 && cart" [products]="itemsDetails" [productCarts]="itemsCart" [cart]="cart"></app-cart-summary>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

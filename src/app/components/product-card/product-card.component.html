@@ -1,8 +1,8 @@
 <div class="row mt-5">
-    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3 text-center" *ngFor="let product of products$ | async">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3 text-center mt-5" *ngFor="let product of products$ | async">
         <div class="card h-100 shadow-lg border-0">
             <div class="h-50 d-flex align-items-center justify-content-center p-5">
-                <img src="{{product.image}}" class="img-fluid border-0 w-75" alt="{{product.title}}">
+                <img src="{{product.image}}" class="img-fluid border-0 w-50" alt="{{product.title}}">
             </div>
             <hr>
             <div class="card-body">
@@ -10,8 +10,8 @@
                 <p class="card-text">{{product.title}}</p>
                 <div class="text-center">
                     <button (click)="onProductClick(product)" class="btn btn-red btn-circle btn-xl me-3 shadow" type="button"><i class="fas fa-info-circle"></i></button>
-                    <button class="btn btn-red btn-circle btn-xl me-3 shadow" type="button"><i class="fas fa-plus-circle"></i></button>
-                    <button class="btn btn-red btn-circle btn-xl shadow" type="button"><i class="fas fa-minus-circle"></i></button>
+                    <button *ngIf="!existInCart(product)" (click)="addToCart(product)" class="btn btn-red btn-circle btn-xl me-3 shadow" type="button"><i class="fas fa-plus-circle"></i></button>
+                    <button *ngIf="existInCart(product)" (click)="removeProduct(product)" class="btn btn-red btn-circle btn-xl shadow" type="button"><i class="fas fa-minus-circle"></i></button>
                 </div>
             </div>
         </div>

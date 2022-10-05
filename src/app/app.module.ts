@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { ComponentsModule } from './components/components.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

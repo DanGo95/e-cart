@@ -1,0 +1,22 @@
+<nav class="navbar fixed-top navbar-expand-lg p-3 navbar-light bg-light">
+    <div class="container">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="home">e-cart</a>
+            </li>
+        </ul>
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+            <!-- Cart -->
+            <a class="text-reset me-3" routerLink="cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <!-- User -->
+            <a *ngIf="auth.user" (click)="logout()" class="text-reset me-3">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+        <!-- Right elements -->
+    </div>
+</nav>
