@@ -1,27 +1,33 @@
-# ECart
+# e-cart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+Aplicación web que simula un carrito de compras, la cual cuenta con sistema de login, donde solo se pide email y contraseña. Los productos se pueden agregar, editar y eliminar dentro del carrito.
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Ingrese a la dirección: https://e-cart-a7b25.web.app/ para ver una demostración del proyecto. Ingrese como email y password: demo@demo.com
 
-## Code scaffolding
+## Uso del proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Pre-requisitos
 
-## Build
+Se necesita tener instalado:
+``` Node.js``` 
+``` Angular CLI``` 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Instalación
 
-## Running unit tests
+Para tener el proyecto funcionando, se deben ejecutar los siguientes comandos dentro de la carpeta del mismo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm install
+```
 
-## Running end-to-end tests
+Luego, se puede iniciar el proyecto con el comando `ng serve` y acceder desde un navegador web a la dirección `http://localhost:4200/`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Construido con
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+El proyecto fue construido con las siguientes herramientas de desarrollo:
+
+* [Visual Studio Code](https://code.visualstudio.com) - Editor de codigo fuente 
+* [Angular](https://angular.io/) - Framework para aplicaciones web desarrollado en TypeScript
