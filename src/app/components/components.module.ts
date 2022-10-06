@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -25,7 +26,8 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    SharedModule,
   ],
   exports: [
     NavbarComponent

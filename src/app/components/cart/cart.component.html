@@ -1,10 +1,6 @@
 <div class="container py-5 h-100 mt-5">
-    <div *ngIf="showLoader" class="row">
-        <div class="col mx-auto text-center mt-5">
-            <i class="fa-5x fas fa-spinner fa-spin"></i>
-        </div>
-    </div>
-    <div *ngIf="!showLoader" class="row d-flex justify-content-center align-items-center h-100">
+    <app-loader [isLoading]="isLoading"></app-loader>
+    <div *ngIf="!isLoading" class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
             <div class="card" style="border-radius: 15px;">
                 <div class="card-body p-0">

@@ -19,9 +19,12 @@ export class ProductCardComponent implements OnInit {
   productCarts!: ProductCart[];
   itemsCart: Product[] = [];
 
+  isLoading = false;
+
   constructor( private products: ProductsService, private cartService: CartService, private router: Router ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.products$ = this.products.getProducts();
     /* get cart */
     this.cartService.getCart().pipe(
@@ -33,6 +36,7 @@ export class ProductCardComponent implements OnInit {
       res.forEach( element => {
         this.products.getProductDetails(element).subscribe( product => this.itemsCart.push(product))
       })
+      this.isLoading = false;
     })
   }
 

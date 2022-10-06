@@ -1,5 +1,6 @@
 <div class="container mt-5">
-    <div class="row mt-5">
+    <app-loader [isLoading]="isLoading"></app-loader>
+    <div *ngIf="!isLoading" class="row mt-5">
         <div class="d-flex justify-content-end mt-5 mb-3">
             <button class="btn btn-red btn-circle btn-xl shadow" (click)="onReturn()">
                 <i class="fas fa-arrow-alt-circle-left"></i>

@@ -18,12 +18,12 @@ export class CartComponent implements OnInit {
   itemsCart!: ProductCart[];
   itemsDetails: Product[] = [];
 
-  showLoader = false;
+  isLoading = false;
 
   constructor( private cartService: CartService, private productsService: ProductsService, private router: Router ) { }
 
   ngOnInit(): void {
-    this.showLoader = true;
+    this.isLoading = true;
     /* get cart */
     this.cartService.getCart().pipe(
       mergeMap( (cart: any) => {
@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
           (product: any) => this.itemsDetails.push(product)
         )
       });
-      this.showLoader = false;
+      this.isLoading = false;
     })
   }
 
