@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
 import { CartService } from '../../services/cart.service';
 import { ProductCart } from '../../interfaces/product-cart';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-details',
@@ -16,6 +17,7 @@ export class ProductDetailsComponent implements OnInit {
 
   product!: Product & { id: string; } | undefined;
   productCarts!: ProductCart[];
+  itemsCart: Product[] = [];
 
   constructor( private route: ActivatedRoute, private products: ProductsService, private cartService: CartService, private location: Location) { }
 
@@ -25,6 +27,17 @@ export class ProductDetailsComponent implements OnInit {
       this.products.getProductById(id).subscribe( (product) => {
         this.product = product
       });
+      /* get cart */
+      this.cartService.getCart().pipe(
+        /* search products from cart */
+        mergeMap(cart => this.cartService.getProductCarts(cart))
+      ).subscribe( res => {
+        this.productCarts = res;
+        /* populate product from cart */
+        res.forEach( element => {
+          this.products.getProductDetails(element).subscribe( product => this.itemsCart.push(product))
+        })
+      })
     })
   }
 

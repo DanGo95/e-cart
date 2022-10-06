@@ -21,7 +21,7 @@ export class CartService {
   itemDoc!: AngularFirestoreDocument<ProductCart>;
   item?: Observable<ProductCart>;
 
-  cart?: Cart;
+  cart: Cart = {} as Cart;
   cartItems?: ProductCart[] = [];
   productDetails?: Product;
 
@@ -43,9 +43,9 @@ export class CartService {
     return this.cartsCollection.valueChanges({idField: 'id'}).pipe(
       map( (carts: Cart[]) => {
         if ( this.auth.user !== '' ) {
-          this.cart = carts.find( cart => cart.status === 'pending' && cart.uid === this.auth.user);
+          this.cart = carts.filter( cart => cart.status === 'pending' && cart.uid === this.auth.user)[0];
           if ( !this.cart ) {
-            return this.createCart();
+            this.createCart();
           }
         }
         return this.cart;
@@ -54,14 +54,11 @@ export class CartService {
   }
 
   createCart() {
-    if ( !this.cart && this.auth.user !== '' ) {
-      const cart: Cart = {
-        status: 'pending',
-        uid: this.auth.user
-      };
-      return this.cartsCollection.add(cart);
+    const cart: Cart = {
+      status: 'pending',
+      uid: this.auth.user
     }
-    return;
+    return this.cartsCollection.add(cart);
   }
 
   addProductToCart( product: Product ) {

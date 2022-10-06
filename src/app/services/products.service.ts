@@ -28,7 +28,7 @@ export class ProductsService {
   getProductDetails( productCart: ProductCart ) {
     return this.productsCollection.valueChanges({ idField: 'id' }).pipe(
       map( (products: Product[]) => {
-        this.productDetails = products.find( product => product.id === productCart.product_id );
+        this.productDetails = products.filter( product => product.id === productCart.product_id )[0];
         return this.productDetails;
       })
     )

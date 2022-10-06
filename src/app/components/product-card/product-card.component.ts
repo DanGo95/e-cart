@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, mergeMap } from 'rxjs';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product';
 import { Router } from '@angular/router';
@@ -16,7 +16,6 @@ import { CartService } from '../../services/cart.service';
 export class ProductCardComponent implements OnInit {
 
   products$!: Observable<Product[]>;
-  cart!: Cart;
   productCarts!: ProductCart[];
   itemsCart: Product[] = [];
 
@@ -24,6 +23,17 @@ export class ProductCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.products$ = this.products.getProducts();
+    /* get cart */
+    this.cartService.getCart().pipe(
+      /* search products from cart */
+      mergeMap(cart => this.cartService.getProductCarts(cart))
+    ).subscribe( res => {
+      this.productCarts = res;
+      /* populate product from cart */
+      res.forEach( element => {
+        this.products.getProductDetails(element).subscribe( product => this.itemsCart.push(product))
+      })
+    })
   }
 
   onProductClick( product: Product ) {
